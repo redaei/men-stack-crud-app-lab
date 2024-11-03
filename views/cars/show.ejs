@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= car.make %></title>
+  </head>
+  <body>
+    <h1><%= car.make %></h1>
+    <p>Model: <%= car.model %></p>
+    <p>Fuel Type: <%= car.fuelType %></p>
+    <p>Doors: <%= car.numberOfDoors %></p>
+    <% if (car.isUsed) { %>
+    <p>Used car</p>
+    <% } else { %>
+    <p>New Car</p>
+    <% } %>
+
+    <form action="/cars/<%=car._id%>?_method=DELETE" method="POST">
+      <button type="submit">Delete <%= car.make %> <%= car.model %></button>
+    </form>
+    <div class="checkbox-div">
+      <a href="/cars/<%= car._id %>/edit"
+        >Edit <%= car.make %> <%= car.model %></a
+      >
+      <a href="/cars">Back to Cars</a>
+    </div>
+  </body>
+</html>
